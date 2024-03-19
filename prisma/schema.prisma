@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model order_status {
+  id           Int            @id
+  status       String?        @db.VarChar(10)
+  timestamp    DateTime?      @db.Timestamp(6)
+  comment      String?        @db.VarChar(50)
+  card_details card_details[]
+}
+
+model card_details {
+  card_id      Int           @id 
+  order_id     Int?
+  order_status order_status? @relation(fields: [order_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user_mobile  user_mobile[]
+}
+
+model user_mobile {
+  user_mobile  String        @id @db.VarChar(50)
+  card_id      Int?
+  card_details card_details? @relation(fields: [card_id], references: [card_id], onDelete: NoAction, onUpdate: NoAction)
+}
