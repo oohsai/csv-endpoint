@@ -6,7 +6,7 @@
 - [Problem Statement](#problem_statement)
 - [Approach](#approach)
 - [Idea / Solution](#idea)
-- [Dependencies / Limitations](#limitations)
+- [Dependencies](#depend)
 - [Future Scope](#future_scope)
 - [Technology Stack](#tech_stack)
 
@@ -29,9 +29,9 @@ The challenge is to process data provided by various companies in separate CSV f
 - **Node.js** - Server Environment: Selected for its efficient request handling, enabling the use of JavaScript/TypeScript for both frontend and backend development. Node.js boasts a vast ecosystem of open-source libraries and packages, making it highly scalable.
 - **Prisma** - Database Toolkit: Employed for its support of multiple database services, connection pooling capabilities, and auto-generated CRUD operations. Prisma also facilitates real-time data synchronization.
 
-## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
+## ⛓️ Dependencies <a name = "depend"></a>
 
-The project relies on dependencies such as Express, CSV, Moment, and pg.
+The project relies on dependencies such as Express, CSV, Moment, and pg. Using neon.tech for a postgres database
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
