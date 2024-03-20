@@ -13,6 +13,12 @@ const sanitizeUserMobile = (userMobile) => {
   return userMobile.replace(/\D/g, "").trim().slice(-9);
 };
 
+router.get("/", async (req, res) => {
+  return res.send(
+    "Hello to the app! You can query card status using the /get_card_status endpoint. use card_id or user_mobile for query"
+  );
+});
+
 router.get("/get_card_status", async (req, res) => {
   try {
     const { card_id, user_mobile } = req.query;
@@ -25,6 +31,7 @@ router.get("/get_card_status", async (req, res) => {
 
     let status;
     let comment = null;
+    let timestamp = null;
 
     if (card_id) {
       const cardStatus = await prisma.card_details.findUnique({
@@ -34,6 +41,7 @@ router.get("/get_card_status", async (req, res) => {
       if (cardStatus) {
         status = cardStatus.order_status.status;
         comment = cardStatus.order_status.comment;
+        timestamp = cardStatus.order_status.timestamp;
       }
     } else if (user_mobile) {
       const userCard = await prisma.user_mobile.findUnique({
@@ -47,12 +55,16 @@ router.get("/get_card_status", async (req, res) => {
       if (userCard && userCard.card_details) {
         status = userCard.card_details.order_status.status;
         comment = userCard.card_details.order_status.comment;
+        timestamp = userCard.card_details.order_status.timestamp;
       }
     }
 
     const response = { status };
     if (comment !== null) {
       response.comment = comment;
+    }
+    if (timestamp !== null) {
+      response.timestamp = new Date(timestamp).toISOString().slice(0, -5);
     }
 
     res.json(response);

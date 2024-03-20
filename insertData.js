@@ -5,10 +5,10 @@ const path = require("path");
 const moment = require("moment");
 
 const prisma = new PrismaClient();
-const dataFolder = "./public/data"; // Change this to the path where your CSV files are located
+const dataFolder = "./public/data";
 
 const sanitizeID = (data) => {
-  // Remove any non-numeric characters using a regular expression
+  // Removing any non-numeric characters using a regular expression
   const numericData = data.replace(/\D/g, "");
 
   // Check if the numeric data is an integer
@@ -21,12 +21,12 @@ const sanitizeID = (data) => {
 };
 
 const sanitizeUserMobile = (userMobile) => {
-  // Remove any non-numeric characters from the userMobile and return the sanitized value
+  // Removing any non-numeric characters from the userMobile and return the sanitized value
   return userMobile.replace(/\D/g, "").trim().slice(-9);
 };
 
 const sanitizeTimestamp = (timestamp) => {
-  // Use moment.js library to parse the timestamp into a consistent format
+  // parsing the timestamp into a consistent format
   return moment(timestamp, [
     "YYYY-MM-DDTHH:mm:ssZ",
     "DD-MM-YYYY HH:mm A",
@@ -108,6 +108,7 @@ fs.readdir(dataFolder, async (err, files) => {
   }
 });
 
+//Code for parsing CSVs
 async function parseCSV(filePath) {
   return new Promise((resolve, reject) => {
     const records = [];
