@@ -25,7 +25,7 @@ The challenge is to process data provided by various companies in separate CSV f
 ## ⛏️ Approach <a name = "approach"></a>
 
 - **PostgreSQL** - Database: Utilized for data storage as per the requirement to implement a persistent database.
-- **Express** - Server Framework: Chosen for its flexibility, modularity, and support for middlewares. Its active community, extensive documentation, and available npm packages make it a reliable choice.
+- **Express** - Server Framework: Chosen for its flexibility, modularity, and support for middlewares. Its active community, extensive documentation, and supports majorly every service.
 - **Node.js** - Server Environment: Selected for its efficient request handling, enabling the use of JavaScript/TypeScript for both frontend and backend development. Node.js boasts a vast ecosystem of open-source libraries and packages, making it highly scalable.
 - **Prisma** - Database Toolkit: Employed for its support of multiple database services, connection pooling capabilities, and auto-generated CRUD operations. Prisma also facilitates real-time data synchronization.
 
@@ -37,3 +37,19 @@ The project relies on dependencies such as Express, CSV, Moment, and pg.
 
 - **Security Enhancements**: Implementation of role-based access control, regular auditing and patching of dependencies, and utilization of encryption techniques to safeguard sensitive data.
 - **Automated CSV Upload**: Instead of manual CSV file loading, an endpoint could be developed to enable file uploads, automatically updating the database.
+
+## 🐳 Dockerfile Execution <a name="dockerfile_execution"></a>
+
+To run the application using Docker, follow these steps:
+
+1. Build the Docker image using the provided Dockerfile:
+
+   ```bash
+   docker-compose build
+
+   ```
+
+2. Run the docker image
+   ```bash
+   docker-compose up
+   ```
