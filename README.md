@@ -37,6 +37,7 @@ The project relies on dependencies such as Express, CSV, Moment, and pg. Using n
 
 - **Security Enhancements**: Implementation of role-based access control, regular auditing and patching of dependencies, and utilization of encryption techniques to safeguard sensitive data.
 - **Automated CSV Upload**: Instead of manual CSV file loading, an endpoint could be developed to enable file uploads, automatically updating the database.
+- **Using a Serverless backend**: We can shift the backend to server-less using cloudflare workers.
 
 ## 🐳 Dockerfile Execution <a name="dockerfile_execution"></a>
 
