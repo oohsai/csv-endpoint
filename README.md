@@ -9,6 +9,7 @@
 - [Dependencies](#depend)
 - [Future Scope](#future_scope)
 - [Technology Stack](#tech_stack)
+- [Deployment](#deploy)
 
 ## 🎈 Usage <a name="usage"></a>
 
@@ -54,3 +55,15 @@ To run the application using Docker, follow these steps:
    ```bash
    docker-compose up
    ```
+
+## Deployment <a name="deploy"></a>
+
+Deployed on Render js using the github repo
+
+`https://csv-endpoint.onrender.com/` 
+
+Deployed on Render js using the docker image
+
+`https://basic-csv-app.onrender.com`
+
+As the services used are of free tier, might take time to boot up.
